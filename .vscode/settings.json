@@ -1,0 +1,31 @@
+{
+  "sqltools.connections": [
+    {
+      "mysqlOptions": {
+        "authProtocol": "xprotocol"
+      },
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 33060,
+      "driver": "MySQL",
+      "name": "default",
+      "username": "root",
+      "password": "root",
+      "connectionTimeout": 15
+    }
+  ],
+  "sqltools.format": {
+    "linesBetweenQueries": 3,
+    "language": "sql",
+    "reservedWordCase": "upper",
+  },
+  "sqltools.results.location": "2",
+  "sqltools.autoOpenSessionFiles": false,
+  "sqltools.autoConnectTo": "default",
+  "sqltools.queryParams.enableReplace": true,
+  "editor.tabSize": 2,
+  "editor.formatOnSave": true,
+  "[sql]": {
+    "editor.defaultFormatter": "mtxr.sqltools"
+  },
+}
