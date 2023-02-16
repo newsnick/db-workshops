@@ -67,3 +67,12 @@ ORDER BY column1, column2, ... ASC|DESC;
 SELECT DISTINCT column1, column2, ...
 FROM table_name;
 ```
+
+### Group by
+[Ref](https://www.w3schools.com/sql/sql_groupby.asp)
+
+```SQL
+SELECT COUNT(CustomerID), Country
+FROM Customers
+GROUP BY Country;
+```
