@@ -26,9 +26,9 @@ Task:
 
 ### Count
 (again)
-- Calc every non-null if pass column
+- count every non-null if pass column
 - count(distinct column)
-- calc(*) == calc(1)
+- count(*) == count(1)
 
 ### Union
 Unite several queries into one list. Uses structured merging for columns (doesn't check names)
