@@ -25,7 +25,7 @@ CREATE TABLE goods (
   id integer AUTO_INCREMENT,
   title varchar(255),
   quantity integer,
-  PRIMARY KEY (id)
+  PRIMARY KEY (id) -- uniq, not null
 );
 
 
@@ -98,3 +98,114 @@ ALTER TABLE goods
 -- @block
 SELECT SUM(item_price * quantity)
 FROM goods;
+
+
+/* Constraints */
+-- @block test
+-- INSERT INTO goods VALUES (null, 'orange', 789, 556);
+UPDATE goods
+SET id = NULL
+WHERE id = 5;
+
+
+-- @block
+USE shop;
+
+
+-- @block
+ALTER TABLE goods
+ADD CONSTRAINT price_less CHECK (item_price >= 0);
+
+
+-- @block
+UPDATE goods
+SET item_price = 0
+WHERE id = 1;
+
+
+-- @block
+ALTER TABLE goods
+ADD COLUMN create_date datetime DEFAULT NOW();
+
+
+-- @block
+SELECT id,
+  title,
+  manufacturer
+FROM shop.goods;
+
+
+-- @block
+INSERT INTO shop.goods (title, quantity, item_price)
+VALUES ('chair', 52, 152.09);
+
+
+-- @block
+ALTER TABLE shop.goods
+ADD COLUMN manufacturer varchar(128);
+
+
+-- @block
+UPDATE shop.goods
+SET manufacturer = 'bosch';
+
+
+-- @block
+UPDATE shop.goods
+SET manufacturer = 'toyota'
+WHERE id = '7';
+
+
+-- @block
+ALTER TABLE shop.goods
+ADD CONSTRAINT uniq_name UNIQUE(title, manufacturer);
+
+
+-- @block
+INSERT INTO shop.goods (title, manufacturer)
+VALUES ('table', 'toyota');
+
+
+/* Creating and insert into from another */
+-- @block
+USE shop;
+
+
+CREATE TABLE copy_goods AS
+SELECT title,
+  manufacturer
+FROM goods;
+
+
+-- @block
+SELECT *
+FROM copy_goods;
+
+
+-- @block
+INSERT INTO copy_goods
+VALUES ('table', 'toyota');
+
+
+-- @block
+USE shop;
+
+
+INSERT INTO copy_goods
+SELECT title,
+  manufacturer
+FROM goods;
+
+
+/* view */
+-- @block
+CREATE VIEW goods_without_prices AS
+SELECT title,
+  manufacturer
+FROM goods;
+
+
+-- @block
+SELECT *
+FROM shop.goods_without_prices
+WHERE manufacturer = 'toyota';
