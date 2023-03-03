@@ -67,6 +67,9 @@
  4 5
  
  */
+DROP DATABASE uni;
+
+
 CREATE DATABASE IF NOT EXISTS uni;
 
 
@@ -110,8 +113,8 @@ CREATE TABLE IF NOT EXISTS Courses (
   teacher_id integer,
   title varchar(128) NOT NULL,
   headman_id integer,
-  FOREIGN KEY (teacher_id) REFERENCES Teachers(id),
-  FOREIGN KEY (headman_id) REFERENCES Students(id),
+  FOREIGN KEY (teacher_id) REFERENCES Teachers(id) ON DELETE NO ACTION,
+  FOREIGN KEY (headman_id) REFERENCES Students(id) ON DELETE SET NULL,
   PRIMARY KEY (id)
 );
 
@@ -120,9 +123,9 @@ CREATE TABLE IF NOT EXISTS StudentsToCourses (
   id integer AUTO_INCREMENT,
   student_id integer,
   course_id integer,
-  FOREIGN KEY (student_id) REFERENCES Students(id),
-  FOREIGN KEY (course_id) REFERENCES Courses(id),
-  PRIMARY KEY (id)
+  FOREIGN KEY (student_id) REFERENCES Students(id) ON DELETE CASCADE,
+  FOREIGN KEY (course_id) REFERENCES Courses(id) ON DELETE CASCADE,
+    PRIMARY KEY (id)
 );
 
 
