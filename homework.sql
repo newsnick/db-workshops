@@ -38,3 +38,14 @@ FROM employees as e
     FROM employees
     GROUP BY department_id
   ) as s ON e.department_id = s.department_id AND e.salary = s.salary;
+
+-- @block
+  SELECT first_name, last_name, e.department_id, e.salary
+FROM employees as e
+INNER JOIN (
+  SELECT department_id, 
+    MAX(salary) AS salary
+  FROM employees
+  GROUP BY department_id
+) as s ON e.department_id = s.department_id AND e.salary = s.salary
+WHERE e.department_id = 50;
