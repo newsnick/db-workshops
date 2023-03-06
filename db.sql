@@ -56,7 +56,8 @@ CREATE TABLE employees (
     salary NUMERIC(8, 2),
     commission_pct NUMERIC(2, 2),
     manager_id NUMERIC(6),
-    department_id NUMERIC(4)
+    department_id NUMERIC(4),
+    start_date DATE
 );
 
 
@@ -747,7 +748,19 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id,
+        start_date
+    )
 VALUES (
         100,
         'Steven',
@@ -758,11 +771,24 @@ VALUES (
         24000,
         NULL,
         NULL,
-        90
+        90,
+        '2022-10-01'
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id,
+        start_date
+    )
 VALUES (
         101,
         'Neena',
@@ -773,11 +799,24 @@ VALUES (
         17000,
         NULL,
         100,
-        90
+        90,
+        '2022-10-04'
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id,
+        start_date
+    )
 VALUES (
         102,
         'Lex',
@@ -788,11 +827,24 @@ VALUES (
         17000,
         NULL,
         100,
-        90
+        90,
+        '2022-11-02'
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id,
+        start_date
+    )
 VALUES (
         103,
         'Alexander',
@@ -803,11 +855,23 @@ VALUES (
         9000,
         NULL,
         102,
-        60
+        60,
+        '2022-08-02'
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         104,
         'Bruce',
@@ -822,7 +886,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         105,
         'David',
@@ -837,7 +912,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         106,
         'Valli',
@@ -852,7 +938,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         107,
         'Diana',
@@ -867,7 +964,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         108,
         'Nancy',
@@ -882,7 +990,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         109,
         'Daniel',
@@ -897,7 +1016,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         110,
         'John',
@@ -912,7 +1042,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         111,
         'Ismael',
@@ -927,7 +1068,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         112,
         'Jose Manuel',
@@ -942,7 +1094,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         113,
         'Luis',
@@ -957,7 +1120,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         114,
         'Den',
@@ -972,7 +1146,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         115,
         'Alexander',
@@ -987,7 +1172,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         116,
         'Shelli',
@@ -1002,7 +1198,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         117,
         'Sigal',
@@ -1017,7 +1224,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         118,
         'Guy',
@@ -1032,7 +1250,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         119,
         'Karen',
@@ -1047,7 +1276,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         120,
         'Matthew',
@@ -1062,7 +1302,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         121,
         'Adam',
@@ -1077,7 +1328,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         122,
         'Payam',
@@ -1092,7 +1354,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         123,
         'Shanta',
@@ -1107,7 +1380,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         124,
         'Kevin',
@@ -1122,7 +1406,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         125,
         'Julia',
@@ -1137,7 +1432,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         126,
         'Irene',
@@ -1152,7 +1458,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         127,
         'James',
@@ -1167,7 +1484,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         128,
         'Steven',
@@ -1182,7 +1510,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         129,
         'Laura',
@@ -1197,7 +1536,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         130,
         'Mozhe',
@@ -1212,7 +1562,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         131,
         'James',
@@ -1227,7 +1588,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         132,
         'TJ',
@@ -1242,7 +1614,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         133,
         'Jason',
@@ -1257,7 +1640,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         134,
         'Michael',
@@ -1272,7 +1666,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         135,
         'Ki',
@@ -1287,7 +1692,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         136,
         'Hazel',
@@ -1302,7 +1718,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         137,
         'Renske',
@@ -1317,7 +1744,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         138,
         'Stephen',
@@ -1332,7 +1770,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         139,
         'John',
@@ -1347,7 +1796,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         140,
         'Joshua',
@@ -1362,7 +1822,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         141,
         'Trenna',
@@ -1377,7 +1848,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         142,
         'Curtis',
@@ -1392,7 +1874,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         143,
         'Randall',
@@ -1407,7 +1900,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         144,
         'Peter',
@@ -1422,7 +1926,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         145,
         'John',
@@ -1437,7 +1952,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         146,
         'Karen',
@@ -1452,7 +1978,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         147,
         'Alberto',
@@ -1467,7 +2004,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         148,
         'Gerald',
@@ -1482,7 +2030,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         149,
         'Eleni',
@@ -1497,7 +2056,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         150,
         'Peter',
@@ -1512,7 +2082,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         151,
         'David',
@@ -1527,7 +2108,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         152,
         'Peter',
@@ -1542,7 +2134,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         153,
         'Christopher',
@@ -1557,7 +2160,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         154,
         'Nanette',
@@ -1572,7 +2186,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         155,
         'Oliver',
@@ -1587,7 +2212,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         156,
         'Janette',
@@ -1602,7 +2238,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         157,
         'Patrick',
@@ -1617,7 +2264,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         158,
         'Allan',
@@ -1632,7 +2290,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         159,
         'Lindsey',
@@ -1647,7 +2316,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         160,
         'Louise',
@@ -1662,7 +2342,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         161,
         'Sarath',
@@ -1677,7 +2368,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         162,
         'Clara',
@@ -1692,7 +2394,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         163,
         'Danielle',
@@ -1707,7 +2420,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         164,
         'Mattea',
@@ -1722,7 +2446,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         165,
         'David',
@@ -1737,7 +2472,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         166,
         'Sundar',
@@ -1752,7 +2498,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         167,
         'Amit',
@@ -1767,7 +2524,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         168,
         'Lisa',
@@ -1782,7 +2550,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         169,
         'Harrison',
@@ -1797,7 +2576,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         170,
         'Tayler',
@@ -1812,7 +2602,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         171,
         'William',
@@ -1827,7 +2628,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         172,
         'Elizabeth',
@@ -1842,7 +2654,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         173,
         'Sundita',
@@ -1857,7 +2680,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         174,
         'Ellen',
@@ -1872,7 +2706,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         175,
         'Alyssa',
@@ -1887,7 +2732,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         176,
         'Jonathon',
@@ -1902,7 +2758,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         177,
         'Jack',
@@ -1917,7 +2784,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         178,
         'Kimberely',
@@ -1932,7 +2810,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         179,
         'Charles',
@@ -1947,7 +2836,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         180,
         'Winston',
@@ -1962,7 +2862,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         181,
         'Jean',
@@ -1977,7 +2888,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         182,
         'Martha',
@@ -1992,7 +2914,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         183,
         'Girard',
@@ -2007,7 +2940,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         184,
         'Nandita',
@@ -2022,7 +2966,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         185,
         'Alexis',
@@ -2037,7 +2992,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         186,
         'Julia',
@@ -2052,7 +3018,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         187,
         'Anthony',
@@ -2067,7 +3044,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         188,
         'Kelly',
@@ -2082,7 +3070,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         189,
         'Jennifer',
@@ -2097,7 +3096,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         190,
         'Timothy',
@@ -2112,7 +3122,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         191,
         'Randall',
@@ -2127,7 +3148,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         192,
         'Sarah',
@@ -2142,7 +3174,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         193,
         'Britney',
@@ -2157,7 +3200,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         194,
         'Samuel',
@@ -2172,7 +3226,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         195,
         'Vance',
@@ -2187,7 +3252,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         196,
         'Alana',
@@ -2202,7 +3278,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         197,
         'Kevin',
@@ -2217,7 +3304,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         198,
         'Donald',
@@ -2232,7 +3330,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         199,
         'Douglas',
@@ -2247,7 +3356,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         200,
         'Jennifer',
@@ -2262,7 +3382,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         201,
         'Michael',
@@ -2277,7 +3408,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         202,
         'Pat',
@@ -2292,7 +3434,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         203,
         'Susan',
@@ -2307,7 +3460,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         204,
         'Hermann',
@@ -2322,7 +3486,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         205,
         'Shelley',
@@ -2337,7 +3512,18 @@ VALUES (
     );
 
 
-INSERT INTO employees
+INSERT INTO employees (
+        employee_id,
+        first_name,
+        last_name,
+        email,
+        phone_NUMERIC,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    )
 VALUES (
         206,
         'William',
