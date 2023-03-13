@@ -4,10 +4,9 @@
       "extensions": [
         "ms-azuretools.vscode-docker",
         "mhutchie.git-graph",
-        "mtxr.sqltools",
-        "mtxr.sqltools-driver-mysql"
+        "mongodb.mongodb-vscode"
       ]
     }
   },
-  "postCreateCommand": "docker run -d -p33060:33060 -e MYSQL_ROOT_PASSWORD=root mysql"
+  "postCreateCommand": "docker run -d -p27017:27017 mongo"
 }
