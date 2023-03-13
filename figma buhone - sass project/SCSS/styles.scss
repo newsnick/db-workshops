@@ -1,0 +1,12 @@
+@import "_global.scss";
+@import "sections/navi.scss";
+@import "sections/intro.scss";
+@import "sections/mainimages.scss";
+@import "sections/blogposts.scss";
+@import "sections/companies.scss";
+@import "sections/testimonies.scss";
+@import "sections/footer.scss";
+
+* {
+  @include body;
+}
