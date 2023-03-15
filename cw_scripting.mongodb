@@ -1,0 +1,35 @@
+// insertMany document
+// take a result
+// iterate over all ids and delete that docs
+
+use('test')
+
+db.example.drop();
+
+const { insertedIds } = db.example.insertMany([
+  {
+    color: "yellow",
+  },
+  {
+    color: "qwe",
+  },
+  {
+    color: 'red'
+  }
+]);
+
+for (let i = 0; insertedIds[i] != null; i++) {
+  const id = insertedIds[i];
+  db.example.deleteOne({ _id: id });
+}
+
+for (const key in insertedIds) {
+  const id = insertedIds[key];
+  db.example.deleteOne({ _id: id });
+}
+
+Object.values(insertedIds).forEach((id) => {
+  db.example.deleteOne({ _id: id });
+})
+
+db.example.countDocuments()

@@ -1,0 +1,63 @@
+use("test");
+
+db.users.drop();
+
+db.users.insertMany([
+  {
+    id: 1,
+    name: "Pavel",
+    age: 28,
+    gender: "m",
+  },
+  {
+    id: 2,
+    name: "Anastasia",
+    age: 25,
+    gender: "f",
+  },
+  {
+    id: 3,
+    name: "Alex",
+    age: 33,
+    gender: "m",
+  },
+  {
+    id: 4,
+    name: "Dora",
+    age: 22,
+    gender: "f",
+  },
+]);
+
+db.users.find();
+// select * from users
+
+db.users.find({ name: "Pavel" });
+// select * from users where name = 'Pavel'
+
+db.users.findOne({ id: 1 });
+// select * from users where id = '1' limit 1
+
+db.users.find({ age: { $gt: 28 } });
+
+// $eq, $ne, $gt, $gte, $lt, $lte, $in
+db.users.find({ name: { $in: ["Pavel", "Anastasia"] } });
+
+// $or, $and, $not, $nor - !(cond1 || cond2 ) == (!cond1 && !cond2)
+db.users.find({ $or: [{ name: "Pavel" }, { gender: "f" }] });
+
+db.users.find({ $and: [{ age: { $gte:23 }}, { gender: "f" }]})
+
+db.users.find({ age: { $gte: 22, $lte: 24 }, gender: "f" })
+
+db.users.find().limit(2)
+
+db.users.find().skip(1).limit(2)
+
+// -1 - desc or 1 - asc
+db.users.find().sort({ age: -1 })
+// select * from users ORDER BY DESC
+
+// projecting data
+db.users.find({}, { age: 1, name: 1, _id: 0 })
+// select age, name from users
