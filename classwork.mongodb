@@ -1,0 +1,5 @@
+const data = require('restaurants.json')
+
+use('test')
+
+db.rest.insertMany(data)
