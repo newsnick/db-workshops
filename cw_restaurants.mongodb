@@ -1,0 +1,31 @@
+const data = require('/home/mark/p/db/restaurants.json')
+
+use('test');
+db.rest.drop();
+db.rest.insertMany(data);
+
+// Write a MongoDB query to display all the documents in the collection restaurants.
+db.rest.find().limit(2)
+
+// Write a MongoDB query to display the fields restaurant_id, name, borough and cuisine for all the documents in the collection restaurant.
+const query = {}
+const projection = { restaurant_id: 1, name: 1, borough: 1, cuisine: 1 }
+db.rest.find(query, projection)
+
+
+//  Write a MongoDB query to display the fields restaurant_id, name, borough and cuisine, but exclude the field _id for all the documents in the collection restaurant.
+const query = {}
+const projection = { restaurant_id: 1, name: 1, borough: 1, cuisine: 1, _id: 0 }
+db.rest.find(query, projection)
+
+// Write a MongoDB query to display the fields restaurant_id, name, borough and zip code, but exclude the field _id for all the documents in the collection restaurant.
+const query = {}
+const projection = { restaurant_id: 1, name: 1, borough: 1, 'address.zipcode': 1 , _id: 0 }
+db.rest.find(query, projection)
+
+// Write a MongoDB query to display all the restaurant which is in the borough Bronx.
+const query = { borough: 'Bronx' }
+const projection = {}
+db.rest.find(query, projection)
+
+// 6-9

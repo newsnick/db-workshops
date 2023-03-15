@@ -1,5 +1,42 @@
-const data = require('restaurants.json')
+// show dbs
+// show collections
+// use db_name
 
-use('test')
+use("test"); // choose db and create it if needed
 
-db.rest.insertMany(data)
+db.example.drop();
+db.createCollection("example"); // create collection explicitly
+
+db.example.insertOne({
+  color: "red",
+  temp: 28,
+});
+
+db.example.insertMany([
+  {
+    color: "yellow",
+  },
+  {
+    title: "qwe",
+  },
+]);
+
+
+// Example of deletion
+{ 
+  db.example.deleteOne({
+    _id: ObjectId('6411c3065c01a999b50670b0')
+  });
+
+  // DELETE FROM example WHERE id = 1;
+
+  db.example.deleteMany({})
+
+  // DELETE FROM example;
+
+  db.example.deleteOne({
+    color: { $exists: true }
+  });
+
+  db.dropDatabase();
+}
