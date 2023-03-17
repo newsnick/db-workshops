@@ -1,0 +1,64 @@
+const data = require('/home/mark/p/db/restaurants.json')
+
+use('test');
+db.rest.drop();
+db.rest.insertMany(data);
+
+// Write a MongoDB query to display all the documents in the collection restaurants.
+db.rest.find().limit(2)
+
+// Write a MongoDB query to display the fields restaurant_id, name, borough and cuisine for all the documents in the collection restaurant.
+const query = {}
+const projection = { restaurant_id: 1, name: 1, borough: 1, cuisine: 1 }
+db.rest.find(query, projection)
+
+
+//  Write a MongoDB query to display the fields restaurant_id, name, borough and cuisine, but exclude the field _id for all the documents in the collection restaurant.
+const query = {}
+const projection = { restaurant_id: 1, name: 1, borough: 1, cuisine: 1, _id: 0 }
+db.rest.find(query, projection)
+
+// Write a MongoDB query to display the fields restaurant_id, name, borough and zip code, but exclude the field _id for all the documents in the collection restaurant.
+const query = {}
+const projection = { restaurant_id: 1, name: 1, borough: 1, 'address.zipcode': 1 , _id: 0 }
+db.rest.find(query, projection)
+
+// Write a MongoDB query to display all the restaurant which is in the borough Bronx.
+const query = { borough: 'Bronx' }
+const projection = {}
+db.rest.find(query, projection)
+
+// 6-9
+// Write a MongoDB query to display the first 5 restaurant which is in the borough Bronx.
+const query = { borough: 'Bronx' } // where clause 
+const projection = { } // select (names of columns, properties)
+db.rest.find(query, projection).limit(5)
+
+// Write a MongoDB query to display the next 5 restaurants after skipping first 5 which are in the borough Bronx.
+const query = { borough: 'Bronx' } 
+const projection = { }
+db.rest.find(query, projection).skip(5).limit(5)
+
+// Write a MongoDB query to find the restaurants who achieved a score more than 90.
+const query = { 'grades.score': { $gt: 90 } } 
+const projection = { }
+db.rest.find(query, projection)
+
+// Write a MongoDB query to find the restaurants that achieved a score, more than 80 but less than 100.
+const query = { 'grades.score': { $gt: 80, $lt: 100 } }
+const projection = { }
+db.rest.find(query, projection)
+
+// Write a MongoDB query to find the restaurants which locate in longitute value less than -95.754168
+const query = { 'address.coord.0': { $lt: -95.754168 } }
+const projection = { }
+db.rest.find(query, projection)
+
+// Write a MongoDB query to find the restaurants that do not prepare any cuisine of 'American' and their grade score more than 70 and latitude less than -65.754168.
+const query = { 
+  'address.coord.0': { $lt: -65.754168 },
+  'cuisine': { $not: { $eq: 'American '} },  
+  'grades.score': { $gt: 70 }
+}
+const projection = { }
+db.rest.find(query, projection)
