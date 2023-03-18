@@ -121,3 +121,4 @@ const query =  {
 const projection = { _id: 1, name: 1, borough: 1, cuisine: 1 }
 
 db.rest.find(query, projection)
+
