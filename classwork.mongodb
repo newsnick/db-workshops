@@ -14,3 +14,41 @@ db.products.insertMany([
     price: 8000,
   },
 ]);
+
+// replaceOne
+db.products.replaceOne({ title: 'apple' }, { title: 'phone' }, { upsert: true })
+// updateOne
+db.products.updateOne({ title: 'banana' }, { $set: { title: 'NaN' } })
+db.products.updateOne({ title: 'NaN' }, { $set: { discount: 20 } })
+// just the same as obj.qwe = 'qwe'
+db.products.updateOne({ title: 'NaN'}, { $inc: { discount: 10 } })
+db.products.updateOne({ title: 'NaN'}, { $inc: { discount: -10, price: 123 } })
+
+db.products.updateOne({title: 'NaN'}, { $mul: { price: 0.9 } })
+
+db.products.updateOne({ title: 'NaN'}, { $min: { price: 350 }}) // $max
+
+db.products.updateOne({ title: 'NaN'}, { $unset: {discount: 1} })
+
+// updateMany
+db.products.updateMany({title: 'phone'}, { $set: { price: 15000 } })
+
+// arrays
+db.products.updateMany({}, { $set: { shops: ['Bronx', 'Queens'] } })
+
+db.products.updateOne({ title: 'phone'}, {$push: { shops: 'Brooklyn'}})
+db.products.updateOne({ title: 'phone'}, 
+  {$push: { shops: { $each: ['Brooklyn', 'Bronx'] } } }
+)
+
+db.products.updateOne({ title: 'phone'}, { $pull: { shops: 'Brooklyn'} })
+db.products.updateOne({ title: 'phone'}, { $pull: { shops: /^B/} })
+db.products.updateOne({ title: 'phone'}, 
+  {$pullAll: { shops: ['Brooklyn', 'Bronx'] } }
+)
+
+db.products.updateMany({ title: 'phone'}, 
+  {$pullAll: { shops: ['Brooklyn', 'Bronx'] } }
+)
+
+db.products.find()

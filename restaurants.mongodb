@@ -1,0 +1,44 @@
+const data = require('/home/mark/p/db/restaurants.json')
+
+use('test')
+
+db.rest.drop();
+db.rest.insertMany(data);
+
+db.rest.findOne();
+
+// 24. Write a MongoDB query to find the restaurant Id, name, address and geographical location for those restaurants where 2nd element of coord array contains a value which is more than 42 and upto 52.
+
+const query = { 'address.coord.1': { $gt: 42, $lt: 52 }}
+const projection = {restaurant_id: 1, name: 1, address: 1, borough: 1}
+db.rest.find(query, projection)
+
+// Write a MongoDB query to arrange the name of the restaurants in ascending order along with all the columns.
+
+const query = {}
+const projection = {restaurant_id: 1, name: 1, borough: 1}
+db.rest.find(query, projection).sort({ name: 1 })
+
+// Write a MongoDB query to arrange the name of the restaurants in descending along with all the columns
+const query = {}
+const projection = {restaurant_id: 1, name: 1, borough: 1}
+db.rest.find(query, projection).sort({ name: -1 })
+
+
+// Write a MongoDB query to arranged the name of the cuisine in ascending order and for that same cuisine borough should be in descending order
+const query = {}
+const projection = { name: 1, cuisine: 1, borough: 1}
+db.rest.find(query, projection).sort({ cuisine: 1, borough: -1 })
+
+// Write a MongoDB query to know whether all the addresses contains the street or not.
+const query = { $or: [
+  { 'address.street': { $exists: 0 } }, 
+  { 'address.street': '' }, 
+  ] }
+const projection = { _id: 0, 'address.street': 1}
+db.rest.find({}, projection).count()
+
+// Write a MongoDB query which will select the restaurant Id, name and grades for those restaurants which returns 0 as a remainder after dividing the score by 7
+const query = { 'grades.score': { $mod: [7, 0] } }
+const projection = { name: 1, restaurant_id: 1, grades: 1}
+db.rest.find(query, projection)
