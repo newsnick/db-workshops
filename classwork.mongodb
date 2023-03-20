@@ -1,5 +1,16 @@
-const data = require('restaurants.json')
+use("test");
 
-use('test')
-
-db.rest.insertMany(data)
+db.products.insertMany([
+  {
+    title: "apple",
+    price: 123,
+  },
+  {
+    title: "banana",
+    price: 250,
+  },
+  {
+    title: "table",
+    price: 8000,
+  },
+]);
