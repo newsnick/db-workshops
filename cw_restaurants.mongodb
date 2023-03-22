@@ -78,7 +78,7 @@ db.rest.find(query, projection)
 //Write a MongoDB query to find the restaurant Id, name, borough and cuisine for those restaurants which contain 'Reg' as three letters somewhere in its name.
 
 const query = { 
-  "name": { $regex: /Reg/ } 
+  "name": { $regex: /Reg/i } 
 }
 const projection = { _id: 1, name: 1, borough: 1, cuisine: 1 }
 
@@ -121,4 +121,12 @@ const query =  {
 const projection = { _id: 1, name: 1, borough: 1, cuisine: 1 }
 
 db.rest.find(query, projection)
+db.rest.findOne()
 
+const query =     
+  { "address.coord.1": { $gt: 42, $lte: 52 }}   
+  ;
+
+const projection = { restaurant_id: 1, name: 1,  address: 1, borough: 1  }
+
+db.rest.find(query, projection)
