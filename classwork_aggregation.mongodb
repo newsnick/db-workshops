@@ -1,0 +1,64 @@
+use('test')
+
+db.orders.insertMany([
+	{
+		id: 1,
+		customer: 'Olga',
+		product: 'Apple',
+		amount: 15.55,
+		city: 'Berlin'
+	},
+	{
+		id: 2,
+		customer: 'Anna',
+		product: 'Apple',
+		amount: 10.05,
+		city: 'Madrid'
+	},
+	{
+		id: 3,
+		customer: 'Olga',
+		product: 'Kiwi',
+		amount: 9.6,
+		city: 'Berlin'
+	},
+	{
+		id: 4,
+		customer: 'Anton',
+		product: 'Apple',
+		amount: 20,
+		city: 'Roma'
+	},
+	{
+		id: 5,
+		customer: 'Olga',
+		product: 'Banana',
+		amount: 8,
+		city: 'Madrid'
+	},
+	{
+		id: 6,
+		customer: 'Petr',
+		product: 'Orange',
+		amount: 18.3,
+		city: 'Paris'
+	}
+])
+
+// Calculate how many orders were created
+// Count orders with apple as a product
+// Query all orders sorted by price ascending
+// Count orders that happend in berlin
+// Count orders with apples in Berlin and Madrid
+// Find how many have spent each client
+// Find how many have been spent on each product
+
+// Find how many have been spent in each city
+// Add to each document propery count with value 0
+// Document with id `1` and `3` set value 3
+// Document with id `4` set value 2
+// Increase count by 1 in all orders
+// Count an quantity of products that have been sold in that order.
+// Calculate how many apples have been sold
+// Find how many times Olga has made purchases
+// Find all cities in which Olga has made purchases

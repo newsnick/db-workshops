@@ -1,5 +1,6 @@
 use("test");
 
+db.products.drop()
 db.products.insertMany([
   {
     title: "apple",
@@ -14,3 +15,39 @@ db.products.insertMany([
     price: 8000,
   },
 ]);
+
+// count
+
+db.products.find({ title: 'apple' }).count()
+db.products.countDocuments()
+db.products.countDocuments({ title: 'banana' })
+// SQL 
+// SELECT COUNT(*) FROM products;
+
+// distinct
+// SELECT DISTINCT title from products;
+db.products.distinct('title')
+
+db.products.updateOne({ title: 'banana' }, { $set: { price: 87 }  })
+
+db.products.aggregate([
+  // { 
+  //   $match: {
+  //     title: 'banana'
+  //   }
+  // },
+  {
+    $group: {
+      _id: "$title",
+      total: {
+        $sum: "$price"
+      }
+    }
+  },
+  {
+    $sort: {
+      total: 1
+    }
+  }
+])
+
