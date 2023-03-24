@@ -1,0 +1,8 @@
+const data = require('/home/mark/p/db/laptops.json')
+
+use('test')
+
+db.lapt.drop();
+db.lapt.insertMany(data);
+
+db.lapt.findOne();

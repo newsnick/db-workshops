@@ -6,7 +6,3 @@ db.rest.drop();
 db.rest.insertMany(data);
 
 db.rest.findOne();
-
-// Calculate how many rest are in each borough
-// Calculate how many rest are in each post office area
-// Calculate how many rest are in each borough with each cuisine (group by several fields)
