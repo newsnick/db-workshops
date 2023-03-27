@@ -8,7 +8,7 @@ db.uni.insertMany([
     name : 'USAL',
     location : {
       type : 'Point',
-      coordinates : [ -5.6722512,17, 40.9607792 ]
+      coordinates : [ -5.6722512, 17, 40.9607792 ]
     },
     students : [
       { year : 2014, number : 24774 },
@@ -23,7 +23,7 @@ db.uni.insertMany([
     name : 'UPSA',
     location : {
       type : 'Point',
-      coordinates : [ -5.6691191,17, 40.9631732 ]
+      coordinates : [ -5.6691191, 17, 40.9631732 ]
     },
     students : [
       { year : 2014, number : 4788 },
@@ -52,3 +52,46 @@ db.courses.insertMany([
     level : 'Excellent'
   }
 ]);
+
+// find el. with country spain and city salamanca // aggreagtion
+db.uni.aggregate([
+  { $match: {
+      country: { $exists: 1 },
+      city: 'Salamanca'
+    }
+  },
+  { $group: {
+      _id: { c: '$country', c2: '$city'},
+      studentsAmount: {
+        $sum: { $size: '$students' }
+      },
+      sumCoordinates: {
+        $sum: { $size: '$location.coordinates'}
+      },
+      sumCoordinate: {
+        $sum: { $last: '$location.coordinates' }
+      },
+      avgCoordinate: {
+        $avg: { $first: '$location.coordinates' }
+      },
+      minCoordinate: {
+        $min: { $last: '$location.coordinates' }
+      },
+      data: {
+        $push: { data: ['$country', '$city'] } // '$$ROOT'
+      }
+    }
+  }
+])
+
+
+db.uni.aggregate([
+  { $match: {
+    name: 'USAL'
+  }},
+  { $unwind: '$students' },
+  { $group: {
+    _id: '$students.year',
+    data: { $push: '$$ROOT' }
+  }}
+])
