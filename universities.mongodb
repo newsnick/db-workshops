@@ -95,3 +95,97 @@ db.uni.aggregate([
     data: { $push: '$$ROOT' }
   }}
 ])
+
+// SQL
+// SELECT *
+// FROM uni as u 
+// LEFT JOIN courses as c 
+// ON u.name = c.university
+db.uni.aggregate([
+  {
+    $project: {
+      location: 0,
+      students: 0,
+    }
+  },
+  {
+    $lookup: {
+      from: 'courses',
+      localField: 'name',
+      foreignField: 'university',
+      as: 'courses'
+    }
+  },
+  {
+    $project: {
+      'courses.university': 0
+    }
+  }
+])
+
+// courses -> lookup to the uni
+db.courses.aggregate([
+  {
+    $lookup: {
+      from: 'uni',
+      localField: 'university',
+      foreignField: 'name',
+      as: 'university',
+      pipeline: [
+        {
+          $project: {
+            location: 0,
+            students: 0,
+          }
+        }
+      ]
+    }
+  }
+])
+// SELECT u.name, u.city, c.name, c.level
+// FROM uni as u 
+// LEFT JOIN courses as c 
+// ON u.name = c.university
+
+// inner join
+db.courses.aggregate([
+  {
+    $lookup: {
+      from: 'uni',
+      localField: 'university',
+      foreignField: 'name',
+      as: 'university',
+      pipeline: [
+        {
+          $project: {
+            location: 0,
+            students: 0,
+          }
+        }
+      ]
+    }
+  },
+  {
+    $unwind: {
+      path: '$university',
+      // preserveNullAndEmptyArrays: true
+    }
+  }
+])
+
+db.courses.insertOne({
+  name: 'Unknown',
+  university: 'MIT'
+})
+
+// self-join
+db.courses.aggregate([
+  {
+    $lookup: {
+      from: 'courses',
+      localField: 'name',
+      foreignField: 'name',
+      as: 'self'
+    }
+  }
+])
