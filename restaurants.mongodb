@@ -1,8 +1,0 @@
-const data = require('/home/mark/p/db/restaurants.json')
-
-use('test')
-
-db.rest.drop();
-db.rest.insertMany(data);
-
-db.rest.findOne();

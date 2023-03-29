@@ -1,0 +1,67 @@
+// rest
+{
+  location: {
+    address: '1, Pushkin st',
+    coordinates: [10.25, 85.52]
+  },
+  menu: [
+    {
+      _id: 0,
+      name: 'Apple',
+      price: 2.5
+    }
+  ],
+  name: 'Crusty crabs',
+  cuisine: 'Seafood'
+}
+// customer
+{
+  fullname: 'John Smith',
+  // address - for delivery
+  phone_number: '+1258789456'
+}
+// order
+{
+  product_list: [
+    { id: 'adlkjlk213d', amount: 1 },
+    { id: 'dlakdl1edas', amount: 2 }
+  ],
+  restarunt_id: 'ld33aksld1e',
+  customer_id: 'qwosajo123d',
+  status: 'pending', // 'cooking', 'ready', 'completed'
+}
+
+
+// user:
+// - create profile
+// - update information in profile
+// user:
+// - see list of restarunts
+// *** geo query, how far user from restarunt
+// - see menu of a restarunt
+// - make order from a restarunt (pending staust)
+// rest:
+// - see pending orders
+// - start cooking
+// - ready for pick up
+// user
+// - see their orders (pending, coooking, ready)
+// rest: 
+// - give our order to user -> chagnge state to complete
+// user:
+// - see history of orders (completed)
+
+// rest:
+// - create rest
+// - update their information
+// - change menu (soft delete)
+
+
+
+const data = {
+  phone: '+123546',
+  fullname: 'John Smith'
+}
+db.users.insertOne
+
+
