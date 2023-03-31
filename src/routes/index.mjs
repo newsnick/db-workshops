@@ -1,5 +1,11 @@
 import { ObjectId } from '@fastify/mongodb'
 
+function filterNullishValues(obj) {
+  return Object.fromEntries(
+    Object.entries(obj).filter(([, value]) => value != null)
+  )
+}
+
 async function getUsers() {
   const users = this.mongo.db.collection('users')
 
@@ -15,6 +21,35 @@ async function createUser(req) {
     fullname: data.fullName,
   })
   return { userId: insertedId }
+}
+
+async function updateUser(req) {
+  const users = this.mongo.db.collection('users')
+  const { id, ...data } = req.body
+  const preparedData = filterNullishValues({
+    phone_number: data.number,
+    fullname: data.fullName,
+  })
+
+  await users.updateOne(
+    { _id: new ObjectId(id) },
+    {
+      $set: preparedData,
+    }
+  )
+}
+
+// Task
+// getRest
+// createRest - with empty array in menu
+// updateRest
+// getRestMenu - take menu from rest
+
+// Example of path param
+async function getUserById(req) {
+  const { userId } = req.params
+  const users = this.mongo.db.collection('users')
+  return users.findOne({ _id: new ObjectId(userId) })
 }
 
 export default async function routes(fastify, options) {
@@ -35,6 +70,26 @@ export default async function routes(fastify, options) {
     handler: createUser,
     schema: {
       body: {},
+    },
+  })
+
+  fastify.route({
+    method: 'PUT',
+    url: '/users',
+    handler: updateUser,
+    schema: {
+      body: {},
+    },
+  })
+
+  fastify.route({
+    method: 'GET',
+    url: '/users/:userId',
+    handler: getUserById,
+    schema: {
+      params: {
+        userId: { type: 'string' },
+      },
     },
   })
 }
