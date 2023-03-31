@@ -1,0 +1,20 @@
+{
+  "name": "db",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.mjs",
+  "scripts": {
+    "start": "node --watch .",
+    "format": "prettier -w 'src/**/*.mjs'"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fastify/mongodb": "^7.0.0",
+    "@fastify/swagger": "^8.3.1",
+    "@fastify/swagger-ui": "^1.6.0",
+    "dotenv": "^16.0.3",
+    "fastify": "^4.15.0",
+    "prettier": "^2.8.7"
+  }
+}

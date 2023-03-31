@@ -56,12 +56,47 @@
 // - update their information
 // - change menu (soft delete)
 
+use('eats')
+db.users.drop();
+db.orders.drop();
+db.rest.drop();
 
-
+// create user
+function createUser(data) {
+  const { insertedId } = db.users.insertOne({ phone_number: data.phone, fullname: data.fullname })
+  return insertedId
+}
 const data = {
   phone: '+123546',
   fullname: 'John Smith'
 }
-db.users.insertOne
+createUser(data)
 
+// update user
+const data = {
+  id: '64243a6436932e789f07ad82',
+  phone: '+278956'
+}
+const { id, ...restData } = data
+db.users.updateOne({ _id: ObjectId(data.id) }, { $set: restData })
 
+// create rest
+const data = {
+  location: {
+    address: '1, Pushkin st',
+    coordinates: [10.25, 85.52]
+  },
+  name: 'Crusty crabs',
+  cuisine: 'Seafood'
+}
+db.rest.insertOne({ ...data, menu: [] });
+
+// update rest
+const data = {
+  id: 64243bc20a781a4278733466,
+  location: {
+    address: '2, Pushkin st'
+  }
+}
+const {id, ...rest} = data
+db.rest.updateOne({ _id: ObjectId(id) }, { $set: data })

@@ -17,7 +17,7 @@
   "sqltools.format": {
     "linesBetweenQueries": 3,
     "language": "sql",
-    "reservedWordCase": "upper",
+    "reservedWordCase": "upper"
   },
   "sqltools.results.location": "2",
   "sqltools.autoOpenSessionFiles": false,
@@ -27,5 +27,5 @@
   "editor.formatOnSave": true,
   "[sql]": {
     "editor.defaultFormatter": "mtxr.sqltools"
-  },
+  }
 }

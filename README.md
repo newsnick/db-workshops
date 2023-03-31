@@ -1,1 +1,1 @@
-# Template for lessons
+# Fastify app with mongodb driver
