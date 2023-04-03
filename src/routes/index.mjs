@@ -48,13 +48,16 @@ async function updateUser(req) {
 async function getRestaurants() {
   const restaurants = this.mongo.db.collection('restaurants')
 
-  return restaurants.find({}, { menu: 0 }).toArray()
+  return restaurants.find({}, { projection: { menu: 0 } }).toArray()
 }
 
 async function getRestaurantById(req) {
   const { restId } = req.params
   const restaurants = this.mongo.db.collection('restaurants')
-  return restaurants.findOne({ _id: new ObjectId(restId) }, { menu: 0 })
+  return restaurants.findOne(
+    { _id: new ObjectId(restId) },
+    { projection: { menu: 0 } }
+  )
 }
 
 async function createRestaurant(req) {
@@ -96,10 +99,32 @@ async function getRestaurantMenu(req) {
   const { restId } = req.params
   const { menu } = await restaurants.findOne(
     { _id: new ObjectId(restId) },
-    { _id: 0, menu: 1 }
+    { projection: { _id: 0, menu: 1 } }
   )
   return menu
 }
+
+async function addProductsInMenu(req) {
+  const restaurants = this.mongo.db.collection('restaurants')
+  const data = req.body
+  const { restId } = req.params
+
+  const products = data.map(({ name, price }) => {
+    return {
+      _id: new ObjectId(),
+      name,
+      price,
+    }
+  })
+
+  return restaurants.updateOne(
+    { _id: new ObjectId(restId) },
+    { $push: { menu: { $each: products } } }
+  )
+}
+// remove(id)
+// TODO: remove element from array
+async function removeProductFromMenu(req) {}
 
 export default async function routes(fastify, options) {
   fastify.get('/ping', function (req, reply) {
@@ -185,6 +210,32 @@ export default async function routes(fastify, options) {
     schema: {
       params: {
         restId: { type: 'string' },
+      },
+    },
+  })
+
+  fastify.route({
+    method: 'POST',
+    url: '/restaurants/:restId/menu',
+    handler: addProductsInMenu,
+    schema: {
+      params: {
+        restId: { type: 'string' },
+      },
+      body: {
+        type: 'array',
+      },
+    },
+  })
+
+  fastify.route({
+    method: 'DELETE',
+    url: '/restaurants/:restId/menu/:productId',
+    handler: removeProductFromMenu,
+    schema: {
+      params: {
+        restId: { type: 'string' },
+        productId: { type: 'string' },
       },
     },
   })
