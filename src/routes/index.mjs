@@ -12,6 +12,12 @@ async function getUsers() {
   return users.find().toArray()
 }
 
+async function getUserById(req) {
+  const { userId } = req.params
+  const users = this.mongo.db.collection('users')
+  return users.findOne({ _id: new ObjectId(userId) })
+}
+
 async function createUser(req) {
   const users = this.mongo.db.collection('users')
   const data = req.body
@@ -39,17 +45,60 @@ async function updateUser(req) {
   )
 }
 
-// Task
-// getRest
-// createRest - with empty array in menu
-// updateRest
-// getRestMenu - take menu from rest
+async function getRestaurants() {
+  const restaurants = this.mongo.db.collection('restaurants')
 
-// Example of path param
-async function getUserById(req) {
-  const { userId } = req.params
-  const users = this.mongo.db.collection('users')
-  return users.findOne({ _id: new ObjectId(userId) })
+  return restaurants.find({}, { menu: 0 }).toArray()
+}
+
+async function getRestaurantById(req) {
+  const { restId } = req.params
+  const restaurants = this.mongo.db.collection('restaurants')
+  return restaurants.findOne({ _id: new ObjectId(restId) }, { menu: 0 })
+}
+
+async function createRestaurant(req) {
+  const restaurants = this.mongo.db.collection('restaurants')
+  const data = req.body
+
+  const { insertedId } = await restaurants.insertOne({
+    location: {
+      address: data.location.address,
+      coordinates: data.location.coordinates,
+    },
+    name: data.name,
+    cuisine: data.cuisine,
+    menu: [],
+  })
+  return { restId: insertedId }
+}
+
+async function updateRestaurant(req) {
+  const restaurants = this.mongo.db.collection('restaurants')
+  const { id, ...data } = req.body
+  const preparedData = filterNullishValues({
+    'location.address': data.location.address,
+    'location.coordinates': data.location.coordinates,
+    name: data.name,
+    cuisine: data.cuisine,
+  })
+
+  await restaurants.updateOne(
+    { _id: new ObjectId(id) },
+    {
+      $set: preparedData,
+    }
+  )
+}
+
+async function getRestaurantMenu(req) {
+  const restaurants = this.mongo.db.collection('restaurants')
+  const { restId } = req.params
+  const { menu } = await restaurants.findOne(
+    { _id: new ObjectId(restId) },
+    { _id: 0, menu: 1 }
+  )
+  return menu
 }
 
 export default async function routes(fastify, options) {
@@ -62,6 +111,17 @@ export default async function routes(fastify, options) {
     url: '/users',
     handler: getUsers,
     schema: {},
+  })
+
+  fastify.route({
+    method: 'GET',
+    url: '/users/:userId',
+    handler: getUserById,
+    schema: {
+      params: {
+        userId: { type: 'string' },
+      },
+    },
   })
 
   fastify.route({
@@ -84,11 +144,47 @@ export default async function routes(fastify, options) {
 
   fastify.route({
     method: 'GET',
-    url: '/users/:userId',
-    handler: getUserById,
+    url: '/restaurants',
+    handler: getRestaurants,
+    schema: {},
+  })
+
+  fastify.route({
+    method: 'GET',
+    url: '/restaurants/:restId',
+    handler: getRestaurantById,
     schema: {
       params: {
-        userId: { type: 'string' },
+        restId: { type: 'string' },
+      },
+    },
+  })
+
+  fastify.route({
+    method: 'POST',
+    url: '/restaurants',
+    handler: createRestaurant,
+    schema: {
+      body: {},
+    },
+  })
+
+  fastify.route({
+    method: 'PUT',
+    url: '/restaurants',
+    handler: updateRestaurant,
+    schema: {
+      body: {},
+    },
+  })
+
+  fastify.route({
+    method: 'GET',
+    url: '/restaurants/:restId/menu',
+    handler: getRestaurantMenu,
+    schema: {
+      params: {
+        restId: { type: 'string' },
       },
     },
   })
