@@ -153,6 +153,14 @@ async function makeOrder(req) {
   return { orderId: insertedId }
 }
 
+// TODO: should return all orders by default not completed for this rest
+// additional: query params option to filter orders by status
+async function getRestaurantsOrders(req) {}
+
+// TODO: should return all orders by default not completed for this rest
+// additional: query params option to filter orders by status
+async function getUsersOrders(req) {}
+
 export default async function routes(fastify, options) {
   fastify.get('/ping', function (req, reply) {
     reply.send({ message: 'pong' })
