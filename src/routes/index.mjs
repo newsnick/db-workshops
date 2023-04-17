@@ -122,9 +122,10 @@ async function addProductsInMenu(req) {
     { $push: { menu: { $each: products } } }
   )
 }
-// remove(id)
-// TODO: remove element from array
+
 async function removeProductFromMenu(req) {}
+
+async function makeOrder(req) {}
 
 export default async function routes(fastify, options) {
   fastify.get('/ping', function (req, reply) {
@@ -237,6 +238,15 @@ export default async function routes(fastify, options) {
         restId: { type: 'string' },
         productId: { type: 'string' },
       },
+    },
+  })
+
+  fastify.route({
+    method: 'POST',
+    url: '/order',
+    handler: makeOrder,
+    schema: {
+      body: {},
     },
   })
 }
