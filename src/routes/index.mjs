@@ -123,9 +123,35 @@ async function addProductsInMenu(req) {
   )
 }
 
-async function removeProductFromMenu(req) {}
+async function removeProductFromMenu(req) {
+  const restaurants = this.mongo.db.collection('restaurants')
+  const { restId, productId } = req.params
 
-async function makeOrder(req) {}
+  return restaurants.updateOne(
+    { _id: new ObjectId(restId) },
+    { $pull: { menu: { _id: new ObjectId(productId) } } }
+  )
+}
+
+const ORDER_STATUSES = {
+  pending: 'pending',
+  cooking: 'cooking',
+  ready: 'ready',
+  completed: 'completed',
+}
+
+async function makeOrder(req) {
+  const orders = this.mongo.db.collection('orders')
+  const orderData = req.body
+  // TODO: add validation for product list
+  const { insertedId } = await orders.insertOne({
+    restaurant_id: orderData.restId,
+    user_id: orderData.userId,
+    product_list: orderData.products,
+    status: ORDER_STATUSES.pending,
+  })
+  return { orderId: insertedId }
+}
 
 export default async function routes(fastify, options) {
   fastify.get('/ping', function (req, reply) {
