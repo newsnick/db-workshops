@@ -61,3 +61,5 @@ const { orderId } = await fetch(host + '/order', {
   body: JSON.stringify(order),
   headers,
 }).then((r) => r.json())
+
+console.log(userId, restId)

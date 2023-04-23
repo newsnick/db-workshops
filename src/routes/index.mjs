@@ -136,6 +136,17 @@ export default async function routes(fastify, options) {
       },
     },
   })
+
+  fastify.route({
+    method: 'GET',
+    url: '/user/:userId/orders',
+    handler: getUsersOrders,
+    schema: {
+      params: {
+        userId: { type: 'string' },
+      },
+    },
+  })
 }
 
 
