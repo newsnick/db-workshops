@@ -63,3 +63,24 @@ const { orderId } = await fetch(host + '/order', {
 }).then((r) => r.json())
 
 console.log(userId, restId)
+
+//
+
+const ordersOfRest = await fetch(host + `/restaurants/${restId}/orders`).then(
+   (r) => r.json()
+)
+
+console.log(ordersOfRest.length == 1 && orderId == ordersOfRest[0]._id)
+
+const ordersOfUser = await fetch(host + `/users/${userId}/orders`).then((r) => 
+ r.json())
+
+ console.log(ordersOfUser.length == 1 && orderId == ordersOfUser[0]._id)
+
+ await fetch(host + `/orders/${orderId}/status/completed`, { method: 'PUT'})
+
+ const orderOfRestEmpty = await fetch(
+  host + `/restaurants/${restId}/orders`
+ ).then((r) => r.json())
+
+ console.log(ordersOfRestEmpty.length == 0)

@@ -56,3 +56,21 @@ export async function getUsersOrders(req) {
   }
   return orders.find(query).toArray()
 }
+
+export async function changeOrderStatus(req) {
+  const { orderId } = req.params
+  const { status } = req.body
+
+  const orders = this.mongo.db.collection('orders')
+  const filter = { _id: ObjectId(orderId) }
+  const update = { $set: { status } }
+  const options = { returnOriginal: false }
+
+  const result = await orders.findOneAndUpdate(filter, update, options)
+
+  if (!result.value) {
+    throw new Error(`Order with ID ${orderId} not found`)
+  }
+
+  return result.value
+}

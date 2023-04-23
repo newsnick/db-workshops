@@ -147,6 +147,20 @@ export default async function routes(fastify, options) {
       },
     },
   })
+
+  fastify.route({
+    method: 'PUT',
+    url: '/orders/:orderId/status/:status',
+    handler: changeOrderStatus,
+    schema: {
+      params: {
+        orderId: { type: 'string' },
+        status: { type: 'string' } 
+      },
+    },
+  })
+
+
 }
 
 
