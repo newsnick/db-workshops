@@ -13,7 +13,7 @@ SELECT CONCAT_WS(' ', first_name, last_name) AS Name,
     END
   ) AS SALARY_GROUP
 FROM employees
-ORDER BY SALARY_GROUP;
+ORDER BY SALARY_GROUP DESC;
 
 
 /*
@@ -24,7 +24,7 @@ ORDER BY SALARY_GROUP;
  */
 -- @block
 -- Calculate amount of records in groups created in previous query.
-SELECT COUNT(1),
+SELECT COUNT(*),
   (
     CASE
       WHEN salary > 10000 THEN 1
@@ -43,7 +43,7 @@ SELECT SUM(salary),
       WHEN salary <= 10000 THEN 0
     END
   ) AS SALARY_GROUP
-FROM employees
+FROM hr.employees
 GROUP BY SALARY_GROUP;
 
 
@@ -59,27 +59,27 @@ SELECT SUM(salary),
       ELSE 0
     END
   ) AS SALARY_GROUP
-FROM employees
+FROM hr.employees
 GROUP BY SALARY_GROUP;
 
 
 -- @block
 -- Sort employees by their salary
-SELECT first_name,
+SELECT first_name as name, last_name as surname, 
   salary
-FROM employees
+FROM hr.employees
 ORDER BY salary DESC;
 
 
 -- @block
 -- Find all available `job_id` in table
 SELECT DISTINCT job_id
-FROM employees;
+FROM hr.employees;
 
 
 -- @block
 -- Find all `job_id` of jobs that don't have `COMMISSION_PCT` or stated salary is less then 3000
-SELECT DISTINCT job_id
+SELECT DISTINCT job_id, salary
 FROM employees
 WHERE commission_pct IS NULL
   OR salary < 3000;
